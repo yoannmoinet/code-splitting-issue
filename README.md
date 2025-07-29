@@ -20,12 +20,12 @@ And we test this using 4 different scenarios
 
 ### Tests
 
-|                                                                    | `esbuild` | `parcel` | `rollup` | `rspack` | `vite` | `rolldown` | `rsbuild` |
-| ------------------------------------------------------------------ | --------- | -------- | -------- | -------- | ------ | ---------- | --------- |
-| <pre lang="js" no-copy>import { bar } from './foo'</pre>           | ✅        | ✅       | ✅       | ✅       | ✅     | ✅         | ✅        |
-| <pre lang="js no-copy">const { bar } = await import('./foo')</pre> | ❌        | ✅       | ✅       | ✅       | ✅     | ✅         | ✅        |
-| <pre lang="js">import('./foo').then(module => module.bar)</pre>    | ❌        | ✅       | ✅       | ❌       | ❌     | ✅         | ❌        |
-| <pre lang="js">import('./foo').then(({ bar }) => bar)</pre>        | ❌        | ✅       | ✅       | ❌       | ✅     | ✅         | ❌        |
+|                                                                                                                          | `esbuild` | `parcel` | `rolldown` | `rollup` | `rsbuild` | `rspack` | `vite`       |
+| ------------------------------------------------------------------------------------------------------------------------ | :-------: | :------: | :--------: | :------: | :-------: | :------: | :----------: |
+| <pre>import { toKeepInBundle } from './to-import'</pre>                                                                  | ✅        | ✅       | ✅         | ✅       | ✅        | ✅       | ✅     <tr></tr>|
+| <pre>const { toKeepInBundle } = await import('./to-import')</pre>                                                        | ❌        | ✅       | ✅         | ✅       | ✅        | ✅       | ✅     <tr></tr>|
+| <pre>import('./to-import)<br/>    .then(module => <br/>        console.log(module.toKeepInBundle)<br/>    )</pre>        | ❌        | ✅       | ✅         | ✅       | ❌        | ❌       | ❌     <tr></tr>|
+| <pre>import('./to-import)<br/>    .then(({ toKeepInBundle }) => <br/>        console.log(toKeepInBundle)<br/>    )</pre> | ❌        | ✅       | ✅         | ✅       | ❌        | ❌       | ✅              |
 
 #### Raw tests
 
