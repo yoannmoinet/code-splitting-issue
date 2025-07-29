@@ -20,12 +20,12 @@ And we test this using 4 different scenarios
 
 ### Tests
 
-|                                                                                                                          | `esbuild` | `parcel` | `rolldown` | `rollup` | `rsbuild` | `rspack` | `vite`       |
-| ------------------------------------------------------------------------------------------------------------------------ | :-------: | :------: | :--------: | :------: | :-------: | :------: | :----------: |
-| <pre>import { toKeepInBundle } from './to-import'</pre>                                                                  | ✅        | ✅       | ✅         | ✅       | ✅        | ✅       | ✅     <tr></tr>|
-| <pre>const { toKeepInBundle } = await import('./to-import')</pre>                                                        | ❌        | ✅       | ✅         | ✅       | ✅        | ✅       | ✅     <tr></tr>|
-| <pre>import('./to-import)<br/>    .then(module => <br/>        console.log(module.toKeepInBundle)<br/>    )</pre>        | ❌        | ✅       | ✅         | ✅       | ❌        | ❌       | ❌     <tr></tr>|
-| <pre>import('./to-import)<br/>    .then(({ toKeepInBundle }) => <br/>        console.log(toKeepInBundle)<br/>    )</pre> | ❌        | ✅       | ✅         | ✅       | ❌        | ❌       | ✅              |
+|                                                                                                                                            | `esbuild` | `parcel` | `rolldown` | `rollup` | `rsbuild`  | `rspack`| `vite`          |
+| ------------------------------------------------------------------------------------------------------------------------------------------ | :-------: | :------: | :--------: | :------: | :--------: | :-----: | :-------------: |
+| <pre lang="js" no-copy>import { toKeepInBundle } from './to-import'</pre>                                                                  | ✅        | ✅       | ✅         | ✅       | ✅        | ✅       | ✅     <tr></tr>|
+| <pre lang="js" no-copy>const { toKeepInBundle } = await import('./to-import')</pre>                                                        | ❌        | ✅       | ✅         | ✅       | ✅        | ✅       | ✅     <tr></tr>|
+| <pre lang="js" no-copy>import('./to-import)<br/>    .then(module => <br/>        console.log(module.toKeepInBundle)<br/>    )</pre>        | ❌        | ✅       | ✅         | ✅       | ❌        | ❌       | ❌     <tr></tr>|
+| <pre lang="js" no-copy>import('./to-import)<br/>    .then(({ toKeepInBundle }) => <br/>        console.log(toKeepInBundle)<br/>    )</pre> | ❌        | ✅       | ✅         | ✅       | ❌        | ❌       | ✅              |
 
 #### Raw tests
 
